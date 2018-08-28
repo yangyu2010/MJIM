@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MJIM_Example' do
+  pod 'MJIM', :path => '../'
+
+  target 'MJIM_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
