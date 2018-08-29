@@ -1,11 +1,10 @@
-use_frameworks!
+
+source 'git@git.musjoy.com:PodSpecs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+inhibit_all_warnings!
+platform :ios, '9.0'
 
 target 'MJIM_Example' do
-  pod 'MJIM', :path => '../'
+  pod 'MJIM/Socket', :path => '../'
 
-  target 'MJIM_Tests' do
-    inherit! :search_paths
-
-    pod 'FBSnapshotTestCase'
-  end
 end

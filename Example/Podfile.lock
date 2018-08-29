@@ -1,27 +1,23 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - MJIM (0.1.0)
+  - MJIM/Socket (0.1.0):
+    - SocketRocket
+  - SocketRocket (0.5.1)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
-  - MJIM (from `../`)
+  - MJIM/Socket (from `../`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - FBSnapshotTestCase
+    - SocketRocket
 
 EXTERNAL SOURCES:
   MJIM:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  MJIM: 9918e83441789d125be69ba880ef9652cdced059
+  MJIM: 49a1063767e43550a05cc63360b80bdd7ac76060
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
 
-PODFILE CHECKSUM: 3bb12378fa9690d256dc9d606eb10ef9c01a2e76
+PODFILE CHECKSUM: 2d2b66773729618cbcbd8c0a21eaf897b2cc56fb
 
 COCOAPODS: 1.5.3
