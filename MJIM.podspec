@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/yangyu2010/MJIM'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Yu Yang' => 'yangyu2010@aliyun.com' }
-  s.source           = { :git => 'https://github.com/yangyu2010/MJIM.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/yangyu2010/MJIM.git', :tag => "v-#{s.version}" }
 
   s.ios.deployment_target = '9.0'
 
@@ -22,11 +22,12 @@ Pod::Spec.new do |s|
   
   s.subspec 'Socket' do |ss|
       ss.source_files = 'MJIM/Classes/Socket/*'
+      ss.dependency 'SocketRocket'
+      ss.dependency 'MJWebService'
   end
   
   
-  s.dependency 'SocketRocket'
-  s.dependency 'MJWebService'
+  
   
 
 end
