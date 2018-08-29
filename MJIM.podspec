@@ -22,7 +22,11 @@ Pod::Spec.new do |s|
   
   s.subspec 'Socket' do |ss|
       ss.source_files = 'MJIM/Classes/Socket/*'
-      ss.dependency 'SocketRocket'
   end
-    
+  
+  
+  s.dependency 'SocketRocket'
+  s.dependency 'MJWebService'
+  
+
 end

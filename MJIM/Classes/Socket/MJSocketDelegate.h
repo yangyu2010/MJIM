@@ -7,6 +7,7 @@
 //  Socket 代理
 
 #import <Foundation/Foundation.h>
+@protocol MJSocketDelegate;
 
 /// Socket的状态
 typedef enum : NSUInteger {
@@ -17,8 +18,7 @@ typedef enum : NSUInteger {
 } MJSocketStatus;
 
 
-@protocol MJSocketDelegate;
-
+/// Socket协议, Socket实例需实现下面的方法和属性
 @protocol MJSocket <NSObject>
 
 /// 开始连接
@@ -35,7 +35,7 @@ typedef enum : NSUInteger {
 
 
 
-
+/// WebSocket的代理, 处理Socket连接, 断开, 收到消息等
 @protocol MJSocketDelegate <NSObject>
 
 @required
@@ -43,7 +43,6 @@ typedef enum : NSUInteger {
 - (void)socket:(id<MJSocket>)socket didReceiveMessage:(id)message;
 
 @optional
-
 /// 连接成功
 - (void)socketDidOpen:(id<MJSocket>)socket;
 /// 连接失败
@@ -51,5 +50,24 @@ typedef enum : NSUInteger {
 /// 连接断开
 - (void)socket:(id<MJSocket>)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
 
+@end
+
+
+
+/// 收到Socket消息后, 通知外界来处理消息
+@protocol MJSocketMessageHandle <NSObject>
+
+@optional
+/// 代理自己处理所有的消息, 然后下面三个都不需要了
+- (void)handleAllMessage:(NSDictionary *)messageBody;
+
+/// Ping消息处理
+- (void)handlePingMessage;
+/// 登录消息
+- (void)handleLoginMessage:(NSDictionary *)messageBody;
+/// 收到普通的消息处理
+- (void)handleReceiveNormalMessage:(NSDictionary *)messageBody;
 
 @end
+
+

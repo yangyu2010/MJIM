@@ -1,13 +1,29 @@
 PODS:
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
   - MJIM/Socket (0.1.0):
+    - MJWebService
     - SocketRocket
+  - MJWebService (0.1.26):
+    - AFNetworking/NSURLSession (~> 3)
+    - ModuleCapability (~> 0.1)
+  - ModuleCapability (0.1.10)
   - SocketRocket (0.5.1)
 
 DEPENDENCIES:
   - MJIM/Socket (from `../`)
 
 SPEC REPOS:
+  "git@git.musjoy.com:PodSpecs.git":
+    - MJWebService
+    - ModuleCapability
   https://github.com/cocoapods/specs.git:
+    - AFNetworking
     - SocketRocket
 
 EXTERNAL SOURCES:
@@ -15,7 +31,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MJIM: 49a1063767e43550a05cc63360b80bdd7ac76060
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  MJIM: 47dd3dd98b94f933c00068b9b665d25ffb9f1f1e
+  MJWebService: 211d40d43d10a23cda9aeab86c42fcacbd5241aa
+  ModuleCapability: 458b13fd20e195060b9f55451da78294e39da8f0
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
 
 PODFILE CHECKSUM: 2d2b66773729618cbcbd8c0a21eaf897b2cc56fb

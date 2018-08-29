@@ -7,8 +7,12 @@
 //
 
 #import "MJViewController.h"
+#import <MJWebSocketMgr.h>
+#import "MJSocketMessageHandle.h"
 
 @interface MJViewController ()
+
+@property (nonatomic, strong) MJSocketMessageHandle *handle;
 
 @end
 
@@ -17,7 +21,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    self.handle = [MJSocketMessageHandle new];
+    [[MJWebSocketMgr sharedInstance] setHandler:self.handle];
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,12 +7,16 @@
 //
 
 #import "MJAppDelegate.h"
+#import <MJWebSocketMgr.h>
 
 @implementation MJAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+
+    [[MJWebSocketMgr sharedInstance] configWithIpString:@"ws://musjoy.com:2345"];
+    [[MJWebSocketMgr sharedInstance] startConnect];
+
     return YES;
 }
 
