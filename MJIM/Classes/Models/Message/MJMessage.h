@@ -6,6 +6,7 @@
 //  聊天的Message类
 
 #import <DBModel.h>
+@class MJMessageBody;
 
 @interface MJMessage : DBModel
 
@@ -45,6 +46,16 @@
 /// 添加时间
 @property (nonatomic, copy) NSString *createTime;
 
+
+/**
+ 初始化消息实例
+ 
+ @param aConversationId 会话ID
+ @param aBody 消息体实例
+ @return LCMessage
+ */
+- (instancetype)initWithConversationID:(NSString *)aConversationId
+                                  body:(MJMessageBody *)aBody;
 
 
 @end
