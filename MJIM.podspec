@@ -26,8 +26,11 @@ Pod::Spec.new do |s|
       ss.dependency 'MJWebService'
   end
   
-  
-  
+  s.subspec 'Models' do |ss|
+      ss.source_files = 'MJIM/Classes/Models/**/*'
+      ss.dependency 'MJIM/Socket'
+      ss.dependency 'DBModel/DBManager'
+  end
   
 
 end

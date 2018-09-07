@@ -6,5 +6,42 @@ platform :ios, '9.0'
 
 target 'MJIM_Example' do
   pod 'MJIM/Socket', :path => '../'
+  pod 'MJIM/Models', :path => '../'
 
+  pod 'DBModel/DBManager'
+
+end
+
+
+post_install do |installer_representation|
+    
+    # 读取项目名称
+    firstAggregateTarget = installer_representation.aggregate_targets.first
+    
+    # 读取用户中多出来的宏定义
+    the_user_config =  firstAggregateTarget.xcconfigs.first.last
+    a_gcc_config = the_user_config.attributes['GCC_PREPROCESSOR_DEFINITIONS']
+    the_gcc_config = a_gcc_config.split("COCOAPODS=1 ")[1]
+    
+    the_build_setting = {
+        'GCC_PREPROCESSOR_DEFINITIONS' => the_gcc_config + ' MODULE_USER_CONSTANT',
+        'HEADER_SEARCH_PATHS' => "\"$(PROJECT_DIR)/../Public\""
+    }
+    
+    # 将这些宏定义应用于其它target
+    installer_representation.pod_targets.sort_by(&:name).each do |target|
+        
+        # 跳过没有不需要编译的target
+        next if target.target_definitions.flat_map(&:dependencies).empty?
+        next if !target.should_build?
+        
+        # 重新保存每个pod target
+        path = target.xcconfig_path
+        xcconfig_gen = Generator::XCConfig::PodXCConfig.new(target)
+        xcconfig = xcconfig_gen.generate
+        xcconfig.merge!(the_build_setting)
+        xcconfig.save_as(path)
+        
+    end
+    
 end
