@@ -4,6 +4,7 @@
 //
 //  Created by Yang Yu on 2018/9/7.
 //  会话model
+//  由于版本更新问题, 字段只能添加, 不能修改和删除
 
 #import <DBModel.h>
 

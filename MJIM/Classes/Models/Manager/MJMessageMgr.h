@@ -4,6 +4,7 @@
 //
 //  Created by Yang Yu on 2018/9/7.
 //  管理消息Message的
+//  数据库相关操作请保证在同一个线程, 一般都是main
 
 #import <Foundation/Foundation.h>
 #import "MJMessage.h"
