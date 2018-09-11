@@ -17,8 +17,12 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/yangyu2010/MJIM.git', :tag => "v-#{s.version}" }
 
   s.ios.deployment_target = '9.0'
+  s.default_subspec = 'Socket'
 
   #s.source_files = 'MJIM/Classes/**/*'
+  #s.dependency 'SocketRocket'
+  #s.dependency 'MJWebService'
+  #s.dependency 'DBModel/DBManager'
   
   s.subspec 'Socket' do |ss|
       ss.source_files = 'MJIM/Classes/Socket/*'
@@ -28,7 +32,6 @@ Pod::Spec.new do |s|
   
   s.subspec 'Models' do |ss|
       ss.source_files = 'MJIM/Classes/Models/**/*'
-      ss.dependency 'MJIM/Socket'
       ss.dependency 'DBModel/DBManager'
   end
   

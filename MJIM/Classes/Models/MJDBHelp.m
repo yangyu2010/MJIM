@@ -8,7 +8,7 @@
 #import "MJDBHelp.h"
 #import "MJConversation.h"
 #import "MJMessage.h"
-#import "DBManager.h"
+#import <DBModel/DBManager.h>
 
 /// 数据库名称
 #ifndef THE_ALBUMS_DB_NAME

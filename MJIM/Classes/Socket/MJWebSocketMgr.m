@@ -7,7 +7,7 @@
 
 #import "MJWebSocketMgr.h"
 #import "MJWebSocket.h"
-#import <MJWebService.h>
+#import <MJWebService/MJWebService.h>
 
 @interface MJWebSocketMgr () <MJSocketDelegate>
 

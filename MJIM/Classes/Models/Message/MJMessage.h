@@ -7,7 +7,7 @@
 //  由于版本更新问题, 字段只能添加, 不能修改和删除
 
 #import <Foundation/Foundation.h>
-#import <DBModel.h>
+#import <DBModel/DBModel.h>
 @class MJMessageBody;
 
 @interface MJMessage : DBModel

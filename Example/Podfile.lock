@@ -17,7 +17,6 @@ PODS:
   - FMDB/standard (2.7.2)
   - MJIM/Models (0.1.0):
     - DBModel/DBManager
-    - MJIM/Socket
   - MJIM/Socket (0.1.0):
     - MJWebService
     - SocketRocket
@@ -50,7 +49,7 @@ SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   DBModel: bdcd39da3fdf8f706992b78fdf7800204daa7290
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
-  MJIM: f0376ab5d3f2b8a2b5017418bdc9577ca2476691
+  MJIM: ed12fd4bd9f03c4edf23d84c3249bf12f4692a33
   MJWebService: 211d40d43d10a23cda9aeab86c42fcacbd5241aa
   ModuleCapability: 458b13fd20e195060b9f55451da78294e39da8f0
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531

@@ -7,8 +7,8 @@
 
 #import "MJConversationMgr.h"
 #import "MJConversation.h"
-#import <DBManager.h>
 #import "MJMessageMgr.h"
+#import <DBModel/DBManager.h>
 
 @implementation MJConversationMgr
 

@@ -6,7 +6,7 @@
 //
 
 #import "MJWebSocket.h"
-#import <SRWebSocket.h>
+#import <SocketRocket/SRWebSocket.h>
 
 @interface MJWebSocket () <SRWebSocketDelegate>
 
