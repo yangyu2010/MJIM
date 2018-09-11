@@ -5,6 +5,7 @@
 //  Created by Yang Yu on 2018/9/7.
 //  文件消息体 一般不直接使用这个类 可以使用图片，视频，语音等子类
 
+#import <Foundation/Foundation.h>
 #import "MJMessageBody.h"
 #import "MJMessageHeader.h"
 

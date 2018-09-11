@@ -6,7 +6,7 @@
 //
 
 #import "MJMessageMgr.h"
-#import "DBManager.h"
+#import <DBManager.h>
 #import "MJMessageHeader.h"
 #import "MJTextMessageBody.h"
 #import "MJImageMessageBody.h"
