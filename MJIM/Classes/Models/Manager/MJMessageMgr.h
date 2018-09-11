@@ -8,39 +8,24 @@
 #import <Foundation/Foundation.h>
 #import "MJMessage.h"
 
-typedef void(^GetMessageListBlock)(NSArray <MJMessage *> *);
-
-typedef void(^HandleMessageSucceedBlock)(BOOL isSucceed);
-
 @interface MJMessageMgr : NSObject
 
 
 #pragma mark- Message数据库操作
 
 /// 获取Message
-+ (void)getConversationMessageWithId:(NSString *)conversationId
-                          completion:(GetMessageListBlock)completion;
 + (NSArray <MJMessage *> *)getConversationMessageWithId:(NSString *)conversationId;
 
 /// 移除Message
-+ (void)removeConversationMessageWithId:(NSString *)conversationId
-                             completion:(HandleMessageSucceedBlock)completion;
 + (BOOL)removeConversationMessageWithId:(NSString *)conversationId;
 
 /// 插入Message
-+ (void)insertMessage:(MJMessage *)message
-           completion:(HandleMessageSucceedBlock)completion;
 + (BOOL)insertMessage:(MJMessage *)message;
 
 /// 更新Message
-+ (void)updateMessage:(MJMessage *)message
-           completion:(HandleMessageSucceedBlock)completion;
 + (BOOL)updateMessage:(MJMessage *)message;
 
 /// 更新Message
-+ (void)updateSendMessageStatus:(NSString *)primaryId
-                      isSucceed:(BOOL)isSucceed
-                     completion:(HandleMessageSucceedBlock)completion;
 + (BOOL)updateSendMessageStatus:(NSString *)primaryId
                         isSucceed:(BOOL)isSucceed;
 

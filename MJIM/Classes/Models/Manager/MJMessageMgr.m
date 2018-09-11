@@ -20,21 +20,6 @@
 
 
 #pragma mark- Get Message
-+ (void)getConversationMessageWithId:(NSString *)conversationId completion:(GetMessageListBlock)completion {
-    
-    if (conversationId == nil ||
-        conversationId.length == 0) {
-        completion ? completion(nil) : nil;
-        return ;
-    }
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-       
-        NSString *sql = [NSString stringWithFormat:@"(conversation = %@)", conversationId];
-        NSArray *arrMessage = [DBManager findModelList:[MJMessage class] withWhereSql:sql];
-        completion ? completion(arrMessage) : nil;
-    });
-}
 
 + (NSArray <MJMessage *> *)getConversationMessageWithId:(NSString *)conversationId {
     if (conversationId.length == 0) {
@@ -48,21 +33,6 @@
 
 
 #pragma mark- Remove Message
-+ (void)removeConversationMessageWithId:(NSString *)conversationId
-                             completion:(HandleMessageSucceedBlock)completion {
-    
-    if (conversationId == nil ||
-        conversationId.length == 0) {
-        completion ? completion(NO) : nil;
-        return ;
-    }
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSString *strSql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE conversationId = %@", [MJMessage tableName], conversationId];
-        FMResultSet *result = [[DBManager sharedInstance] executeQuery:strSql];
-        completion ? completion(result.next) : nil;
-    });
-}
 
 + (BOOL)removeConversationMessageWithId:(NSString *)conversationId {
     NSString *strSql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE conversationId = %@", [MJMessage tableName], conversationId];
@@ -73,18 +43,7 @@
 
 
 #pragma mark- Insert Message
-+ (void)insertMessage:(MJMessage *)message
-           completion:(HandleMessageSucceedBlock)completion {
-    if (message == nil) {
-        completion ? completion(NO) : nil;
-        return ;
-    }
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        BOOL succeed = [DBManager insertModel:message];
-        completion ? completion(succeed) : nil;
-    });
-}
+
 + (BOOL)insertMessage:(MJMessage *)message {
     if (message == nil) {
         return NO;
@@ -96,19 +55,6 @@
 
 
 #pragma mark- Update Message
-+ (void)updateMessage:(MJMessage *)message
-           completion:(HandleMessageSucceedBlock)completion {
-    
-    if (message == nil) {
-        completion ? completion(NO) : nil;
-        return ;
-    }
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        BOOL succeed = [DBManager updateModel:message];
-        completion ? completion(succeed) : nil;
-    });
-}
 
 + (BOOL)updateMessage:(MJMessage *)message {
     if (message == nil) {
@@ -117,31 +63,6 @@
     
     BOOL succeed = [DBManager updateModel:message];
     return succeed;
-}
-
-+ (void)updateSendMessageStatus:(NSString *)primaryId
-                      isSucceed:(BOOL)isSucceed
-                     completion:(HandleMessageSucceedBlock)completion {
-    
-    if (primaryId == nil ||
-        primaryId.length == 0) {
-        completion ? completion(NO) : nil;
-        return ;
-    }
-    
-    NSString *sql = [NSString stringWithFormat:@"primaryId = %@",primaryId];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        MJMessage *message = [DBManager findModel:[MJMessage class] withWhereSql:sql];
-        if (isSucceed) {
-            message.sendStatus = (NSNumber<DBInt> *)[NSNumber numberWithInteger: MJMessageStatusSucceed];
-        } else {
-            message.sendStatus = (NSNumber<DBInt> *)[NSNumber numberWithInteger: MJMessageStatusFailed];
-        }
-        BOOL succeed = [DBManager updateModel:message];
-        completion ? completion(succeed) : nil;
-    });
-    
 }
 
 + (BOOL)updateSendMessageStatus:(NSString *)primaryId
