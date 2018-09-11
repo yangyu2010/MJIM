@@ -39,5 +39,7 @@
 /// 该会话是否屏蔽 0没有屏蔽 1被自己屏幕 2被他人屏蔽
 @property (nonatomic, strong) NSNumber<DBInt> *shield;
 
+/// 可以自己扩展extension
+@property (nonatomic, strong) NSDictionary *extension;
 
 @end

@@ -46,6 +46,8 @@
 /// 添加时间
 @property (nonatomic, copy) NSString *createTime;
 
+/// 可以自己扩展extension
+@property (nonatomic, strong) NSDictionary *extension;
 
 /**
  初始化消息实例
