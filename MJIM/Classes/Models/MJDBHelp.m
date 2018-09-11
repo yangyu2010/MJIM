@@ -9,21 +9,17 @@
 #import "MJConversation.h"
 #import "MJMessage.h"
 #import <DBModel/DBManager.h>
-
-/// 数据库名称
-#ifndef THE_ALBUMS_DB_NAME
-#define THE_ALBUMS_DB_NAME  @"com.musjoy.iOS"
-#endif
+#import <ModuleCapability/ModuleCapability.h>
 
 @implementation MJDBHelp
 
 + (void)DBInit {
     
     NSArray *arrAlbumTables = @[
-                                [MJConversation tableName],
-                                [MJMessage tableName],
+                                THE_IM_DB_MESSAGE,
+                                THE_IM_DB_CONVERSATION,
                                 ];
-    [[DBManager sharedInstance] openDefaultDB:THE_ALBUMS_DB_NAME withTables:arrAlbumTables];
+    [[DBManager sharedInstance] openDefaultDB:THE_IM_DB_NAME withTables:arrAlbumTables];
 
 }
 

@@ -8,8 +8,12 @@ target 'MJIM_Example' do
   pod 'MJIM/Socket', :path => '../'
   pod 'MJIM/Models', :path => '../'
 
+  pod 'ModuleCapability'
   pod 'DBModel/DBManager'
 
+
+    pod 'WebInterface'
+    
 end
 
 

@@ -90,11 +90,11 @@
 /**
  创建一个文本Message
  */
-+ (MJMessage *)getTextMessageWithChatId:(NSString *)chatId
-                                   text:(NSString *)text {
++ (MJMessage *)getTextMessageWithId:(NSString *)conversationId
+                               text:(NSString *)text {
     
     MJTextMessageBody *body = [[MJTextMessageBody alloc] initWithText:text];
-    MJMessage *message = [[MJMessage alloc] initWithConversationID:chatId body:body];
+    MJMessage *message = [[MJMessage alloc] initWithConversationID:conversationId body:body];
     
     long long primaryId = [DBManager insertModelGetId:message];
     //    NSLog(@"getTextMessage_primaryId: %lld", primaryId);
@@ -106,10 +106,10 @@
 /**
  创建一个image message
  */
-+ (MJMessage *)getImageMessageWithChatId:(NSString *)chatId
-                                   image:(UIImage *)image
-                               localPath:(NSString *)localPath
-                              remotePath:(NSString *)remotePath {
++ (MJMessage *)getImageMessageWithId:(NSString *)conversationId
+                               image:(UIImage *)image
+                           localPath:(NSString *)localPath
+                          remotePath:(NSString *)remotePath {
     
     
     
@@ -117,46 +117,32 @@
     body.localPath = localPath;
     body.remotePath = remotePath ;
 
-    MJMessage *message = [[MJMessage alloc] initWithConversationID:chatId body:body];
-
-    BOOL is = [DBManager insertModel:message];
-    if (is) {
-        NSDictionary *dict = @{@"conversationId" : message.conversationId,
-                               @"direction": message.direction,
-                               @"createTime": message.createTime,
-                               };
-        return [DBManager findModel:[MJMessage class] inCondition:dict];
-    }
-
-    return nil;
+    MJMessage *message = [[MJMessage alloc] initWithConversationID:conversationId body:body];
+    
+    long long primaryId = [DBManager insertModelGetId:message];
+    message.primaryId = (NSNumber<Primary> *)[NSNumber numberWithLongLong:primaryId];
+    return message;
 }
 
 /**
  创建一个音频 message
  */
-+ (MJMessage *)getAudioMessageWithChatId:(NSString *)chatId
-                               localPath:(NSString *)localPath
-                              remotePath:(NSString *)remotePath
-                                duration:(float)duration {
++ (MJMessage *)getAudioMessageWithId:(NSString *)conversationId
+                           localPath:(NSString *)localPath
+                          remotePath:(NSString *)remotePath
+                            duration:(float)duration {
     
     MJVoiceMessageBody *body = [[MJVoiceMessageBody alloc] init];
     body.duration = duration;
     body.localPath = localPath;
     body.remotePath = remotePath ;
 
-    MJMessage *message = [[MJMessage alloc] initWithConversationID:chatId body:body];
-    
-    BOOL is = [DBManager insertModel:message];
-    if (is) {
-        NSDictionary *dict = @{@"conversationId" : message.conversationId,
-                               @"direction": message.direction,
-                               @"createTime": message.createTime,
-                               };
-        return [DBManager findModel:[MJMessage class] inCondition:dict];
-    }
-    
-    return nil;
-    
+    MJMessage *message = [[MJMessage alloc] initWithConversationID:conversationId body:body];
+
+    long long primaryId = [DBManager insertModelGetId:message];
+    message.primaryId = (NSNumber<Primary> *)[NSNumber numberWithLongLong:primaryId];
+    return message;
+
 }
 
 @end

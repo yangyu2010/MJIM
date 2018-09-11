@@ -16,6 +16,8 @@
 
 /// 当前会话对应的ID
 @property (nonatomic, copy) NSString *conversationId;
+/// 当前会话对应的ID 同conversationId
+@property (nonatomic, copy) NSString *chatId;
 
 /// 聊天人的id，以后做群里id已，分割
 @property (nonatomic, copy) NSString *userId;
@@ -42,6 +44,6 @@
 @property (nonatomic, strong) NSNumber<DBInt> *shield;
 
 /// 可以自己扩展extension
-@property (nonatomic, strong) NSDictionary *extension;
+@property (nonatomic, strong) NSString *extension;
 
 @end

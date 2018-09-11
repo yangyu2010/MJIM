@@ -20,11 +20,12 @@
     if (self) {
         
         _conversationId = aConversationId;
+        _chatId = aConversationId;
         _messageContent = aBody.toJSONString;
 
         _messageType = (NSNumber<DBInt> *)[NSNumber numberWithInteger:aBody.type];
         _direction = (NSNumber<DBInt> *)[NSNumber numberWithInteger:MJMessageDirectionSend];
-        _createTime = [NSString stringWithFormat:@".0%f", [[NSDate date] timeIntervalSince1970]];
+        _createTime = [NSString stringWithFormat:@"%.lf", [[NSDate date] timeIntervalSince1970]];
         _sendStatus = (NSNumber<DBInt> *)[NSNumber numberWithInteger:MJMessageStatusDelivering];
         _isRead = (NSNumber<DBInt> *)[NSNumber numberWithBool:NO];
         

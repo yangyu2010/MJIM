@@ -43,8 +43,8 @@
  @param text 文本
  @return MJMessage
  */
-+ (MJMessage *)getTextMessageWithChatId:(NSString *)chatId
-                                   text:(NSString *)text;
++ (MJMessage *)getTextMessageWithId:(NSString *)conversationId
+                               text:(NSString *)text;
 
 
 /**
@@ -56,10 +56,10 @@
  @param remotePath 远程路径
  @return MJMessage
  */
-+ (MJMessage *)getImageMessageWithChatId:(NSString *)chatId
-                                   image:(UIImage *)image
-                               localPath:(NSString *)localPath
-                              remotePath:(NSString *)remotePath;
++ (MJMessage *)getImageMessageWithId:(NSString *)conversationId
+                               image:(UIImage *)image
+                           localPath:(NSString *)localPath
+                          remotePath:(NSString *)remotePath;
 
 
 
@@ -72,10 +72,10 @@
  @param duration 音频大小
  @return MJMessage
  */
-+ (MJMessage *)getAudioMessageWithChatId:(NSString *)chatId
-                               localPath:(NSString *)localPath
-                              remotePath:(NSString *)remotePath
-                                duration:(float)duration;
++ (MJMessage *)getAudioMessageWithId:(NSString *)conversationId
+                           localPath:(NSString *)localPath
+                          remotePath:(NSString *)remotePath
+                            duration:(float)duration;
 
 
 

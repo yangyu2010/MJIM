@@ -23,6 +23,8 @@
 
 /// 关联我的会话列表ID
 @property (nonatomic, copy) NSString *conversationId;
+/// 当前会话对应的ID 同conversationId
+@property (nonatomic, copy) NSString *chatId;
 
 /// 收到消息时 发消息人的id
 @property (nonatomic, strong) NSNumber<DBInt> *senderId;
@@ -49,7 +51,7 @@
 @property (nonatomic, copy) NSString *createTime;
 
 /// 可以自己扩展extension
-@property (nonatomic, strong) NSDictionary *extension;
+@property (nonatomic, strong) NSString *extension;
 
 /**
  初始化消息实例

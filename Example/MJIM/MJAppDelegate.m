@@ -8,15 +8,22 @@
 
 #import "MJAppDelegate.h"
 #import <MJWebSocketMgr.h>
+#import <MJIM/MJDBHelp.h>
 
 @implementation MJAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
-    [[MJWebSocketMgr sharedInstance] configWithIpString:@"ws://musjoy.com:2345"];
+    NSLog(@"%@", NSHomeDirectory());
+    
+    [MJDBHelp DBInit];
+    
+    [[MJWebSocketMgr sharedInstance] configWithIpString:@"ws://192.168.88.160:2345"];
     [[MJWebSocketMgr sharedInstance] startConnect];
-
+    
+   
+    
+    
     return YES;
 }
 

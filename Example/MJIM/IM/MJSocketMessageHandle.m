@@ -8,6 +8,9 @@
 
 #import "MJSocketMessageHandle.h"
 #import <MJWebSocketMgr.h>
+#import <WebInterface/WebInterface.h>
+
+#import "InterfaceManager.h"
 
 @implementation MJSocketMessageHandle
 
@@ -31,6 +34,23 @@
         
         [[MJWebSocketMgr sharedInstance] sendData:strPing];
     }
+    else if (type == kSocketLoginCode) {
+        NSDictionary *dataDict = messageBody[@"data"];
+        NSString *clientId = dataDict[@"clientId"];
+        if (clientId.length == 0) {
+            return ;
+        }
+        
+        NSDictionary *body = @{
+                               @"clientId": clientId,
+                               };
+        [InterfaceManager startAuthRequest:API_SOCKET_BINDUID describe:API_SOCKET_BINDUID body:body completion:nil];
+        
+    }
+    else if (type == kSocketReceiveMessageCode) {
+        
+    }
+    
 }
 
 @end

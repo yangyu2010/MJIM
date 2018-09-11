@@ -22,7 +22,8 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
-		86B0A740213651390039001C /* MJSocketMessageHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B0A73F213651390039001C /* MJSocketMessageHandle.m */; };
+		86BA88012147BB2300AA206A /* MJSocketMessageHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BA88002147BB2300AA206A /* MJSocketMessageHandle.m */; };
+		86DA3FB82147C1950065513F /* InterfaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DA3FB62147C1950065513F /* InterfaceManager.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +65,11 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7917D7589503DFC15AAB9AAF /* Pods-MJIM_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MJIM_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MJIM_Example/Pods-MJIM_Example.release.xcconfig"; sourceTree = "<group>"; };
 		7F2F43EC8D4B0DB02407C999 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		86B0A73E213651390039001C /* MJSocketMessageHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJSocketMessageHandle.h; sourceTree = "<group>"; };
-		86B0A73F213651390039001C /* MJSocketMessageHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJSocketMessageHandle.m; sourceTree = "<group>"; };
+		86BA87FE2147B81800AA206A /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		86BA87FF2147BB2300AA206A /* MJSocketMessageHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJSocketMessageHandle.h; sourceTree = "<group>"; };
+		86BA88002147BB2300AA206A /* MJSocketMessageHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJSocketMessageHandle.m; sourceTree = "<group>"; };
+		86DA3FB62147C1950065513F /* InterfaceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceManager.m; sourceTree = "<group>"; };
+		86DA3FB72147C1950065513F /* InterfaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceManager.h; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,13 +144,14 @@
 		6003F593195388D20070C39A /* Example for MJIM */ = {
 			isa = PBXGroup;
 			children = (
+				86BA87FE2147B81800AA206A /* Constant.h */,
+				86DA3FB52147C18A0065513F /* Help */,
+				86BA87F72147B64C00AA206A /* IM */,
 				6003F59C195388D20070C39A /* MJAppDelegate.h */,
 				6003F59D195388D20070C39A /* MJAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* MJViewController.h */,
 				6003F5A6195388D20070C39A /* MJViewController.m */,
-				86B0A73E213651390039001C /* MJSocketMessageHandle.h */,
-				86B0A73F213651390039001C /* MJSocketMessageHandle.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -193,6 +198,24 @@
 				5644C55A31FD75C301CF34A9 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		86BA87F72147B64C00AA206A /* IM */ = {
+			isa = PBXGroup;
+			children = (
+				86BA87FF2147BB2300AA206A /* MJSocketMessageHandle.h */,
+				86BA88002147BB2300AA206A /* MJSocketMessageHandle.m */,
+			);
+			path = IM;
+			sourceTree = "<group>";
+		};
+		86DA3FB52147C18A0065513F /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				86DA3FB72147C1950065513F /* InterfaceManager.h */,
+				86DA3FB62147C1950065513F /* InterfaceManager.m */,
+			);
+			path = Help;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,7 +342,8 @@
 				6003F59E195388D20070C39A /* MJAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* MJViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				86B0A740213651390039001C /* MJSocketMessageHandle.m in Sources */,
+				86DA3FB82147C1950065513F /* InterfaceManager.m in Sources */,
+				86BA88012147BB2300AA206A /* MJSocketMessageHandle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

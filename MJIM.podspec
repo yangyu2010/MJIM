@@ -33,6 +33,7 @@ Pod::Spec.new do |s|
   s.subspec 'Models' do |ss|
       ss.source_files = 'MJIM/Classes/Models/**/*'
       ss.dependency 'DBModel/DBManager'
+      ss.dependency 'ModuleCapability'
   end
   
 

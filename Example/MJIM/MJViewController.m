@@ -9,10 +9,18 @@
 #import "MJViewController.h"
 #import <MJWebSocketMgr.h>
 #import "MJSocketMessageHandle.h"
+#import "InterfaceManager.h"
+#import <MJTextMessageBody.h>
+#import <MJMessageMgr.h>
 
 @interface MJViewController ()
 
 @property (nonatomic, strong) MJSocketMessageHandle *handle;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *textLab;
+@property (weak, nonatomic) IBOutlet UITextField *field;
+
 
 @end
 
@@ -26,11 +34,43 @@
     [[MJWebSocketMgr sharedInstance] setHandler:self.handle];
     
 }
+/**
+ {
+ chatId = 365;
+ createTime = 1536659258;
+ direction = 0;
+ isRead = 0;
+ messageContent = "{\"type\":0,\"text\":\"\U6211\"}";
+ messageType = 0;
+ primaryId = 1;
+ sendStatus = 1;
+ }
+ */
+- (IBAction)send:(id)sender {
+    if (_field.text.length == 0) {
+        return ;
+    }
+    
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    MJMessage *aMessage = [MJMessageMgr getTextMessageWithId:@"365" text:_field.text];
+    
+    NSDictionary *body = @{
+                           @"chatId": aMessage.chatId,
+                           @"messageType": aMessage.messageType,
+                           @"messageContent": aMessage.messageContent,
+                           @"primaryId": [NSString stringWithFormat:@"%@", aMessage.primaryId],
+                           @"devicePushId": @"0",
+                           };
+    
+    [InterfaceManager startAuthRequest:API_SOCKET_CHAT describe:API_SOCKET_CHAT body:body completion:nil];
+
+
+    
+//    MJTextMessageBody *body = [[MJTextMessageBody alloc] initWithText:_textLab.text];
+//
+//    MJMessage *message = [MJMessage alloc] ;
+    
 }
+
 
 @end

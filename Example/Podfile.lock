@@ -1,4 +1,5 @@
 PODS:
+  - ActionProtocol (0.1.1)
   - AFNetworking/NSURLSession (3.2.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -17,6 +18,7 @@ PODS:
   - FMDB/standard (2.7.2)
   - MJIM/Models (0.1.0):
     - DBModel/DBManager
+    - ModuleCapability
   - MJIM/Socket (0.1.0):
     - MJWebService
     - SocketRocket
@@ -25,17 +27,30 @@ PODS:
     - ModuleCapability (~> 0.1)
   - ModuleCapability (0.1.10)
   - SocketRocket (0.5.1)
+  - WebInterface (0.1.9):
+    - ActionProtocol (~> 0.1)
+    - MJWebService (~> 0.1)
+    - ModuleCapability (~> 0.1)
+    - WebInterface/Core (= 0.1.9)
+  - WebInterface/Core (0.1.9):
+    - ActionProtocol (~> 0.1)
+    - MJWebService (~> 0.1)
+    - ModuleCapability (~> 0.1)
 
 DEPENDENCIES:
   - DBModel/DBManager
   - MJIM/Models (from `../`)
   - MJIM/Socket (from `../`)
+  - ModuleCapability
+  - WebInterface
 
 SPEC REPOS:
   "git@git.musjoy.com:PodSpecs.git":
+    - ActionProtocol
     - DBModel
     - MJWebService
     - ModuleCapability
+    - WebInterface
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - FMDB
@@ -46,14 +61,16 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  ActionProtocol: 2331f4c31d5be0786c248920fceece0234cfe07f
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   DBModel: bdcd39da3fdf8f706992b78fdf7800204daa7290
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
-  MJIM: ed12fd4bd9f03c4edf23d84c3249bf12f4692a33
+  MJIM: 33166aeb619b88011a2f6795a1527ed0b8139b07
   MJWebService: 211d40d43d10a23cda9aeab86c42fcacbd5241aa
   ModuleCapability: 458b13fd20e195060b9f55451da78294e39da8f0
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  WebInterface: 05b05dc94d3c8dc56a083db2dcba5097c70a92b8
 
-PODFILE CHECKSUM: 304b44e8d735c6877db10d5a1987ac220782efd4
+PODFILE CHECKSUM: 750d6f63cf0181239161ba133ac4167f92a6e6c5
 
 COCOAPODS: 1.5.3
