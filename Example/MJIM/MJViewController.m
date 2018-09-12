@@ -8,7 +8,7 @@
 
 #import "MJViewController.h"
 
-#import <MJIM/MJModelsHeader.h>
+#import <MJIM/MJModels.h>
 #import <MJWebSocketMgr.h>
 
 #import "MJSocketMessageHandle.h"

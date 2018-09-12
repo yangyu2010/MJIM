@@ -8,7 +8,7 @@
 
 #import "MJAppDelegate.h"
 #import <MJIM/MJWebSocketMgr.h>
-#import <MJIM/MJModelsHeader.h>
+#import <MJIM/MJModels.h>
 
 @implementation MJAppDelegate
 

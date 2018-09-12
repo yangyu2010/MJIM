@@ -9,7 +9,7 @@
 #import "MJSocketMessageHandle.h"
 #import <MJWebSocketMgr.h>
 #import <WebInterface/WebInterface.h>
-#import <MJIM/MJModelsHeader.h>
+#import <MJIM/MJModels.h>
 
 #import "InterfaceManager.h"
 

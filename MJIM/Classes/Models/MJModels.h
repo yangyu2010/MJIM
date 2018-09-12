@@ -1,13 +1,9 @@
 //
-//  MJModelsHeader.h
+//  MJModels.h
 //  Pods
 //
 //  Created by Yang Yu on 2018/9/12.
 //
-
-#ifndef MJModelsHeader_h
-#define MJModelsHeader_h
-
 
 #import "MJDBHelp.h"
 #import "MJConversation.h"
@@ -20,6 +16,3 @@
 #import "MJVoiceMessageBody.h"
 
 #import "MJMessageHeader.h"
-
-
-#endif /* MJModelsHeader_h */
