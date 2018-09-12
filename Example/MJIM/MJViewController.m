@@ -7,11 +7,13 @@
 //
 
 #import "MJViewController.h"
+
+#import <MJIM/MJModelsHeader.h>
 #import <MJWebSocketMgr.h>
+
 #import "MJSocketMessageHandle.h"
 #import "InterfaceManager.h"
-#import <MJTextMessageBody.h>
-#import <MJMessageMgr.h>
+#import "Constant.h"
 
 @interface MJViewController ()
 
@@ -33,7 +35,31 @@
     self.handle = [MJSocketMessageHandle new];
     [[MJWebSocketMgr sharedInstance] setHandler:self.handle];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(actionReceiveMessage:)
+                                                 name:kNotificationReceiveMessage
+                                               object:nil];
+
 }
+
+
+
+/// 监听通知, 收到消息
+- (void)actionReceiveMessage:(NSNotification *)notification {
+    if ([notification.object isKindOfClass:[MJMessage class]] == NO) {
+        return ;
+    }
+    
+    MJMessage *message = (MJMessage *)notification.object;
+    
+    NSLog(@"收到聊天消息");
+    
+    self.textLab.text = message.messageContent;
+}
+
+
+
 /**
  {
  chatId = 365;
@@ -52,7 +78,7 @@
     }
     
 
-    MJMessage *aMessage = [MJMessageMgr getTextMessageWithId:@"365" text:_field.text];
+    MJMessage *aMessage = [MJMessageMgr getTextMessageWithId:@"179" text:_field.text];
     
     NSDictionary *body = @{
                            @"chatId": aMessage.chatId,
@@ -62,7 +88,15 @@
                            @"devicePushId": @"0",
                            };
     
-    [InterfaceManager startAuthRequest:API_SOCKET_CHAT describe:API_SOCKET_CHAT body:body completion:nil];
+    [InterfaceManager startAuthRequest:API_SOCKET_CHAT describe:API_SOCKET_CHAT body:body completion:^(BOOL isSucceed, NSString *message, id data) {
+        if (isSucceed) {
+            NSLog(@"发送成功");
+        } else {
+            NSLog(@"发送失败");
+        }
+        
+        self.field.text = @"";
+    }];
 
 
     

@@ -9,6 +9,7 @@
 #import "MJSocketMessageHandle.h"
 #import <MJWebSocketMgr.h>
 #import <WebInterface/WebInterface.h>
+#import <MJIM/MJModelsHeader.h>
 
 #import "InterfaceManager.h"
 
@@ -40,15 +41,29 @@
         if (clientId.length == 0) {
             return ;
         }
-        
+
         NSDictionary *body = @{
                                @"clientId": clientId,
                                };
         [InterfaceManager startAuthRequest:API_SOCKET_BINDUID describe:API_SOCKET_BINDUID body:body completion:nil];
-        
+
     }
     else if (type == kSocketReceiveMessageCode) {
+        NSDictionary *dataDict = messageBody[@"data"];
+        NSError *error = nil;
+        MJMessage *message = [[MJMessage alloc] initWithDictionary:dataDict error:&error];
+        if (error) {
+            return ;
+        }
         
+//        message.direction = (NSNumber<DBInt> *)[NSNumber numberWithInteger:mjm];
+        message.isRead = (NSNumber<DBInt> *)[NSNumber numberWithBool:NO];
+        message.isMediaPlayed = (NSNumber<DBBool> *)[NSNumber numberWithBool:NO];
+        
+        [MJMessageMgr insertMessage:message];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationReceiveMessage object:message];
+
     }
     
 }

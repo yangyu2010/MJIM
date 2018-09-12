@@ -7,8 +7,8 @@
 //
 
 #import "MJAppDelegate.h"
-#import <MJWebSocketMgr.h>
-#import <MJIM/MJDBHelp.h>
+#import <MJIM/MJWebSocketMgr.h>
+#import <MJIM/MJModelsHeader.h>
 
 @implementation MJAppDelegate
 
@@ -18,7 +18,7 @@
     
     [MJDBHelp DBInit];
     
-    [[MJWebSocketMgr sharedInstance] configWithIpString:@"ws://192.168.88.160:2345"];
+    [[MJWebSocketMgr sharedInstance] configWithIpString:@"ws://192.168.88.134:2345"];
     [[MJWebSocketMgr sharedInstance] startConnect];
     
    

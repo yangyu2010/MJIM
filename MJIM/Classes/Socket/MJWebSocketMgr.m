@@ -130,7 +130,8 @@ static MJWebSocketMgr *_manager = nil;
         return ;
     }
     
-    if (self.socket.status == MJSocketStatusConnecting) {
+    if (self.socket.status == MJSocketStatusConnecting ||
+        self.socket.status == MJSocketStatusConnected) {
         return ;
     }
     
@@ -148,7 +149,7 @@ static MJWebSocketMgr *_manager = nil;
     [self startConnect];
     
     //    _isInConnecting = YES;
-    NSLog(@"开始重连...");
+    NSLog(@"‼️‼️‼️‼️开始重连...");
 }
 
 

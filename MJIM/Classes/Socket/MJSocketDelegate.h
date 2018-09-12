@@ -11,10 +11,14 @@
 
 /// Socket的状态
 typedef enum : NSUInteger {
-    MJSocketStatusUnConnected = 1000,       /// 未连接
-    MJSocketStatusConnecting = 1001,        /// 正在连接
-    MJSocketStatusConnected = 1002,         /// 已连接
-    MJSocketStatusUnknow = 1003,            /// 未知
+    /// 未连接
+    MJSocketStatusUnConnected = 1000,
+    /// 正在连接
+    MJSocketStatusConnecting = 1001,
+    /// 已连接
+    MJSocketStatusConnected = 1002,
+    /// 未知
+    MJSocketStatusUnknow = 1003,
 } MJSocketStatus;
 
 

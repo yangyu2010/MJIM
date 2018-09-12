@@ -19,7 +19,7 @@
     
     
     NSDictionary *authDict = @{
-                               @"Authorization": @"eyJ0eXAiOiJKV1QiLCJhbGciOiJTSEEyNTYifQ.eyJ1c2VySWQiOjEwMDIsIm5pY2tOYW1lIjoiaVBob25lIHjmtYvor5XmnLoiLCJleHAiOjE1NjgxOTQ0OTN9.D9G2dkL5Za6xowWYxla7TGc_0B0k_SHA5cOFokMYMlc",
+                               @"Authorization": @"eyJ0eXAiOiJKV1QiLCJhbGciOiJTSEEyNTYifQ.eyJ1c2VySWQiOjEwODcsIm5pY2tOYW1lIjoidGhlODg4IiwiZXhwIjoxNTY4MjU0MTYyfQ.alz4q5sAeMfMROLNP0Wp6BFQ9gGp-AvAh3jlN8ZFTtY",
                                };
     
     [self startRequest:action describe:describe body:body header:authDict completion:completion];

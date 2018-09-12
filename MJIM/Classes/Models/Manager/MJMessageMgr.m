@@ -111,8 +111,6 @@
                            localPath:(NSString *)localPath
                           remotePath:(NSString *)remotePath {
     
-    
-    
     MJImageMessageBody *body = [[MJImageMessageBody alloc] initWithImage:image];
     body.localPath = localPath;
     body.remotePath = remotePath ;
